@@ -4,10 +4,17 @@ public class Photoreceptor extends Neuron
 {
 	public String type;
 	
-	public Photoreceptor(int index, String type)
+	public Photoreceptor(int index, String type) throws IllegalArgumentException
 	{
 		super(index);
-		this.type = type;
+		if(type=="green" || type=="blue" || type=="red")
+		{
+			this.type = type;
+		}
+		else
+		{
+			throw new IllegalArgumentException("wrong type");
+		}
 	}
 	
 	@Override
