@@ -18,9 +18,16 @@ public class Photoreceptor extends Neuron
 	}
 	
 	@Override
-	public void addSynapse(Synapse synapse)
+	public void addSynapse(Synapse synapse) throws IllegalArgumentException
 	{
-		
+		if(this.outgoingsynapses.size() < 1)
+		{
+			super.addSynapse(synapse);
+		}
+		else
+		{
+			throw new IllegalArgumentException("not more than one synapse possible");
+		}
 	}
 	
 	public double[] Excitation(int wave)
